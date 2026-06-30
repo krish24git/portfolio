@@ -32,7 +32,11 @@ function HomePage() {
             >
               GitHub
             </a>
-            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+            <a
+              href={`${import.meta.env.BASE_URL}resume.pdf`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Resume
             </a>
             <a
