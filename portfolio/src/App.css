@@ -259,5 +259,47 @@ justify-content:center;
 .quick-links{
 justify-content:center;
 }
+.details-btn {
+  margin-top: 15px;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #0077ff;
+  color: white;
+  font-weight: 600;
+}
 
+.details-btn:hover {
+  background: #005fd1;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  width: 90%;
+  max-width: 700px;
+  background: white;
+  color: black;
+  border-radius: 12px;
+  padding: 25px;
+}
+
+.close-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  background: crimson;
+  color: white;
+  border-radius: 8px;
+}
 }

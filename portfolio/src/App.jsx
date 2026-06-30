@@ -2,6 +2,7 @@ import "./App.css";
 import hero from "./assets/hero .png";
 import resumeScreenshot1 from "../projects/ai resume analyzer/ai ss.png";
 import resumeScreenshot2 from "../projects/ai resume analyzer/result.png";
+import { useState } from "react";
 import { HashRouter, NavLink, Route, Routes } from "react-router-dom";
 
 function HomePage() {
@@ -100,39 +101,87 @@ function SkillsPage() {
 }
 
 function ProjectsPage() {
+  const [selectedProject, setSelectedProject] = useState(null);
+
+  const projects = [
+    {
+      title: "AI Resume Analyzer",
+      tech: "React.js • Node.js • Flask • MongoDB",
+      images: [resumeScreenshot1, resumeScreenshot2],
+      description:
+        "An AI-powered Resume Analyzer that evaluates resumes, provides ATS scores, extracts skills, and recommends improvements. It helps job seekers optimize their resumes for Applicant Tracking Systems.",
+    },
+    {
+      title: "German Automatic Speech Recognition",
+      tech: "Python • TensorFlow • Flask",
+      description:
+        "Developed a German speech-to-text system using AI models that converts spoken German into text with high accuracy. The application features a user-friendly interface and real-time transcription.",
+    },
+    {
+      title: "Binance Futures Trading Bot",
+      tech: "Python • REST API",
+      description:
+        "Built an automated cryptocurrency futures trading bot using the Binance API. The bot executes trades based on predefined strategies, manages risk, and provides real-time market monitoring.",
+    },
+  ];
+
   return (
     <section className="page-section">
       <h2>Projects</h2>
+
       <div className="cards">
-        <div className="project">
-          <h3>AI Resume Analyzer</h3>
-          <p>React.js • Node.js • Flask • MongoDB</p>
-          <div className="project-media">
-            <img
-              src={resumeScreenshot1}
-              alt="AI Resume Analyzer dashboard screenshot"
-            />
-            <img
-              src={resumeScreenshot2}
-              alt="AI Resume Analyzer result screenshot"
-            />
+        {projects.map((project, index) => (
+          <div className="project" key={index}>
+            <h3>{project.title}</h3>
+            <p>{project.tech}</p>
+
+            {project.images && (
+              <div className="project-media">
+                {project.images.map((img, i) => (
+                  <img key={i} src={img} alt={project.title} />
+                ))}
+              </div>
+            )}
+
+            <button
+              className="details-btn"
+              onClick={() => setSelectedProject(project)}
+            >
+              View Details
+            </button>
+          </div>
+        ))}
+      </div>
+
+      {selectedProject && (
+        <div
+          className="modal-overlay"
+          onClick={() => setSelectedProject(null)}
+        >
+          <div
+            className="modal"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h2>{selectedProject.title}</h2>
+
+            <p>
+              <strong>Tech Stack:</strong> {selectedProject.tech}
+            </p>
+
+            <p>{selectedProject.description}</p>
+
+            <button
+              className="close-btn"
+              onClick={() => setSelectedProject(null)}
+            >
+              Close
+            </button>
           </div>
         </div>
-
-        <div className="project">
-          <h3>German Automatic Speech Recognition</h3>
-          <p>Python • TensorFlow • Flask</p>
-        </div>
-
-        <div className="project">
-          <h3>Binance Futures Trading Bot</h3>
-          <p>Python • REST API</p>
-        </div>
-      </div>
+      )}
     </section>
   );
 }
-
 function ContactPage() {
   return (
     <section className="page-section">
