@@ -2,6 +2,9 @@ import "./App.css";
 import hero from "./assets/hero .png";
 import resumeScreenshot1 from "../projects/ai resume analyzer/ai ss.png";
 import resumeScreenshot2 from "../projects/ai resume analyzer/result.png";
+import germanSS1 from "../projects/german asr/Screenshot 2026-06-29 211858.png";
+import germanSS2 from "../projects/german asr/Screenshot 2026-06-29 212010.png";
+import tradingBotSS from "../projects/Trading bot/trading bot.jpeg";
 import { useState } from "react";
 import { HashRouter, NavLink, Route, Routes } from "react-router-dom";
 
@@ -112,17 +115,19 @@ function ProjectsPage() {
         "An AI-powered Resume Analyzer that evaluates resumes, provides ATS scores, extracts skills, and recommends improvements. It helps job seekers optimize their resumes for Applicant Tracking Systems.",
     },
     {
-      title: "German Automatic Speech Recognition",
-      tech: "Python • TensorFlow • Flask",
-      description:
-        "Developed a German speech-to-text system using AI models that converts spoken German into text with high accuracy. The application features a user-friendly interface and real-time transcription.",
-    },
-    {
-      title: "Binance Futures Trading Bot",
-      tech: "Python • REST API",
-      description:
-        "Built an automated cryptocurrency futures trading bot using the Binance API. The bot executes trades based on predefined strategies, manages risk, and provides real-time market monitoring.",
-    },
+  title: "German Automatic Speech Recognition",
+  tech: "Python • TensorFlow • Flask",
+  images: [germanSS1, germanSS2],
+  description:
+    "Developed a German speech-to-text system using AI models that converts spoken German into text with high accuracy.",
+},
+  
+   {
+  title: "Binance Futures Trading Bot",
+  tech: "Python • REST API",
+  images: [tradingBotSS],
+  description: "Built an automated cryptocurrency futures trading bot using the Binance API."
+}
   ];
 
   return (
